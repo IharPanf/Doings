@@ -3,169 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Doings (SE task)</title>
+
     <link rel="stylesheet" href="frontend/css/bootstrap.css">
     <link rel="stylesheet" href="frontend/css/custom.css">
 </head>
 <body>
-<div class="container">
-    <div class="row-fluid title">
-        <h3 class="text-info">Week Events</h3>
-    </div>
-    <div class="row-fluid">
-        <div class="span1 curDay">
-            Понедельник
-        </div>
-        <div class="span11 events">
-            <div class="one_event" >
-                <span contenteditable="true">SomeEvents</span>
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-            </div>
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="add">
-                <a href="#" class="add_new">...</a>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span1 curDay">
-            Вторник
-        </div>
-        <div class="span11 events">
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="add">
-                <a href="#" class="add_new">...</a>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span1 curDay">
-            Среда
-        </div>
-        <div class="span11 events">
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="add">
-                <a href="#" class="add_new">...</a>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span1 curDay">
-            Четверг
-        </div>
-        <div class="span11 events">
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="add">
-                <a href="#" class="add_new">...</a>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span1 curDay">
-            Пятница
-        </div>
-        <div class="span11 events">
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">Very long EventsVery long EventsVery long EventsVery long EventsVery long EventsVery long Events</span>
-            </div>
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="add">
-                <a href="#" class="add_new">...</a>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span1 curDay">
-            Суббота
-        </div>
-        <div class="span11 events">
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="add">
-                <a href="#" class="add_new">...</a>
-            </div>
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span1 curDay">
-            Воскресенье
-        </div>
-        <div class="span11 events">
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="one_event">
-                <div class="cancel">
-                    <a href="#">X</a>
-                </div>
-                <span contenteditable="true">SomeEvents</span>
-            </div>
-            <div class="add">
-                <a href="#" class="add_new">...</a>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="container" id="content"></div>
 <!--- Form add new Events-->
 <div id="modal" class="modal fade">
     <div class="modal-header">
@@ -190,10 +33,71 @@
 
 <script src="frontend/js/jquery-1.12.0.min.js"></script>
 <script src="frontend/js/bootstrap.min.js"></script>
+<script src="frontend/js/react.min.js"></script>
+<script src="frontend/js/react-dom.min.js"></script>
+<script src="frontend/js/browser.min.js"></script>
+
+<script type="text/babel">
+    var OneEvent = React.createClass({
+        render: function () {
+            return (
+                    <div className="one_event">
+                        <span contentEditable="true">SomeEvents</span>
+
+                        <div className="cancel">
+                            <a href="#">X</a>
+                        </div>
+                    </div>
+            );
+        }
+    });
+
+    var DayEvents = React.createClass({
+        render: function () {
+            return (
+                    <div className="row-fluid">
+                        <div className="span1 curDay">
+                            Понедельник
+                        </div>
+
+                        <div className="span11 events">
+                            <OneEvent />
+                            <OneEvent />
+                            <OneEvent />
+                            <div className="add">
+                                <a href="#" className="add_new">...</a>
+                            </div>
+                        </div>
+                    </div>
+            );
+        }
+    });
+
+    var WeekEvents = React.createClass({
+        render: function () {
+            return (
+                    <div className="row-fluid title">
+                        <h3 className="text-info">Week Events</h3>
+                        <DayEvents />
+                        <DayEvents />
+                        <DayEvents />
+                        <DayEvents />
+                        <DayEvents />
+                        <DayEvents />
+                    </div>
+            );
+        }
+    });
+    ReactDOM.render(
+        React.createElement(WeekEvents, null),
+        document.getElementById('content')
+    );
+</script>
 <script>
     $(document).ready(function () {
         var curPosition;
         $('.add_new').bind('click', function (e) {
+            console.log('add......');
             curPosition = e.target;
             $('#modal').modal();
             $('.modal-backdrop').bind('click', function () {
@@ -207,9 +111,9 @@
                     + '<div class="cancel">'
                     + '<a href="#">X</a>'
                     + '</div>'
-                    +'<span contenteditable="true">'
+                    + '<span contenteditable="true">'
                     + $('#inputText').val()
-                    +'</span>'
+                    + '</span>'
                     + '</div>'
             );
 
