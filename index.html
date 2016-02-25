@@ -20,96 +20,37 @@
                 <label class="control-label" for="inputText">Event</label>
 
                 <div class="controls">
-                    <textarea rows="6" id="inputText" placeholder="текст события" name="textEvents"></textarea>
+                    <textarea rows="6" id="inputText" placeholder="text event" name="textEvents"></textarea>
                 </div>
             </div>
             <div class="control-group btn-block">
-                <button type="button" class="btn btn-primary btn-large addEvent">Добавить</button>
+                <button type="button" class="btn btn-primary btn-large addEvent">Add event</button>
             </div>
         </form>
     </div>
 </div>
-
-<script src="frontend/js/jquery-1.12.0.min.js"></script>
-<script src="frontend/js/bootstrap.min.js"></script>
-<script src="frontend/js/react.min.js"></script>
-<script src="frontend/js/react-dom.min.js"></script>
-<script src="frontend/js/browser.min.js"></script>
+<script>
+    var DoingEvents = {};
+</script>
+<script src="frontend/js/lib/jquery-1.12.0.min.js"></script>
+<script src="frontend/js/lib/bootstrap.min.js"></script>
+<script src="frontend/js/lib/react.min.js"></script>
+<script src="frontend/js/lib/react-dom.min.js"></script>
+<script src="frontend/js/lib/browser.min.js"></script>
+<script src="frontend/js/data/data.js"></script>
+<script src="frontend/js/components/oneevent.js" type="text/babel"> </script>
+<script src="frontend/js/components/dayevents.js" type="text/babel"></script>
+<script src="frontend/js/components/weekevents.js" type="text/babel"></script>
 
 <script type="text/babel">
-    var curPosition;
-    var OneEvent = React.createClass({
-        deleteClick:function(e){
-            var curElem = e.target;
-            $(curElem).parent().parent().hide();    //удаление события
-        },
-        render: function () {
-            return (
-                    <div className="one_event">
-                        <span contentEditable="true">SomeEvents</span>
-
-                        <div className="cancel">
-                            <a href="#" onClick={this.deleteClick}>X</a>
-                        </div>
-                    </div>
-            );
-        }
-    });
-
-    var DayEvents = React.createClass({
-        addNew:function(e) {
-            curPosition = e.target;
-            console.log(curPosition);
-            $('#modal').modal();
-            $('.modal-backdrop').bind('click', function () {
-                $('.close').click();
-            })
-        },
-        render: function () {
-            return (
-                    <div className="row-fluid">
-                        <div className="span1 curDay">
-                            Понедельник
-                        </div>
-
-                        <div className="span11 events">
-                            <OneEvent />
-                            <OneEvent />
-                            <OneEvent />
-                            <div className="add">
-                                <a href="#" className="add_new" onClick={this.addNew}>...</a>
-                            </div>
-                        </div>
-                    </div>
-            );
-        }
-    });
-
-    var WeekEvents = React.createClass({
-        render: function () {
-            console.log(this.props);
-            return (
-                    <div className="row-fluid title">
-                        <h3 className="text-info">Week Events</h3>
-                        <DayEvents />
-                        <DayEvents />
-                        <DayEvents />
-                        <DayEvents />
-                        <DayEvents />
-                        <DayEvents />
-                    </div>
-            );
-        }
-    });
-    ReactDOM.render(
-        React.createElement(WeekEvents, null),
-        document.getElementById('content')
-    );
+   ReactDOM.render(
+           React.createElement(DoingEvents.WeekEvents, null),
+           document.getElementById('content')
+   );
 </script>
 <script>
 
     $(document).ready(function () {
-
         $('.addEvent').bind('click', function () {
             $(curPosition).parent().parent().prepend('<div class="one_event">'
                     + '<div class="cancel">'
@@ -125,11 +66,6 @@
             $('.close').click();
         })
     });
-
-    function delEvent(e) {
-        var curElem = e.target;
-        $(curElem).parent().parent().hide();    //удаление события
-    }
 </script>
 </body>
 </html>
