@@ -1,0 +1,98 @@
+body {
+    background: #E5E5E5;
+}
+
+.container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    background: white;
+}
+
+.row-fluid {
+    text-align: center;
+    margin-bottom: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    height:150px;
+}
+
+.title {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #E5E5E5;
+    height:50px;
+}
+
+/* DAYS */
+.curDay {
+    writing-mode: vertical-lr;
+    padding: 10px;
+    min-height: 100px !important;
+    background: white;
+    color: black;
+    padding-left: 20px;
+    height:100%;
+}
+
+.row-fluid:nth-child(2n) .curDay {
+    background: #eaeaea;
+}
+
+.row-fluid:nth-child(2n+1) {
+    background: #eaeaea;
+}
+
+/*  EVENTS*/
+.events {
+    padding: 10px;
+    text-align: left;
+    font-size: 120%;
+    color:navy;
+    cursor:pointer;
+}
+
+.one_event {
+    margin-bottom: 2px;
+    padding: 5px;
+}
+
+.one_event:hover {
+    background: #bbbbbb;
+    border-radius: 10px;
+}
+
+.cancel {
+    width: 20px;
+    float: right;
+    font-size:70%;
+}
+
+.add {
+    width: 20px;
+}
+
+/* FORM ADD NEW EVENT*/
+
+.modal-header {
+    text-align: center;
+}
+
+#inputText {
+    width: 95%;
+    resize: none;
+}
+
+.btn-block {
+    text-align: center;
+}
+.btn-block .btn-large {
+    width:75%;
+}
+
+.form-horizontal .control-label {
+    width: 50px;
+}
+
+.form-horizontal .controls {
+    margin-left: 70px;
+}

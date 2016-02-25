@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doings (SE task)</title>
+    <link rel="stylesheet" href="frontend/css/bootstrap.css">
+    <link rel="stylesheet" href="frontend/css/custom.css">
+</head>
+<body>
+<div class="container">
+    <div class="row-fluid title">
+        <h3 class="text-info">Week Events</h3>
+    </div>
+    <div class="row-fluid">
+        <div class="span1 curDay">
+            Понедельник
+        </div>
+        <div class="span11 events">
+            <div class="one_event" >
+                <span contenteditable="true">SomeEvents</span>
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+            </div>
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="add">
+                <a href="#" class="add_new">...</a>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span1 curDay">
+            Вторник
+        </div>
+        <div class="span11 events">
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="add">
+                <a href="#" class="add_new">...</a>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span1 curDay">
+            Среда
+        </div>
+        <div class="span11 events">
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="add">
+                <a href="#" class="add_new">...</a>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span1 curDay">
+            Четверг
+        </div>
+        <div class="span11 events">
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="add">
+                <a href="#" class="add_new">...</a>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span1 curDay">
+            Пятница
+        </div>
+        <div class="span11 events">
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">Very long EventsVery long EventsVery long EventsVery long EventsVery long EventsVery long Events</span>
+            </div>
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="add">
+                <a href="#" class="add_new">...</a>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span1 curDay">
+            Суббота
+        </div>
+        <div class="span11 events">
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="add">
+                <a href="#" class="add_new">...</a>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span1 curDay">
+            Воскресенье
+        </div>
+        <div class="span11 events">
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="one_event">
+                <div class="cancel">
+                    <a href="#">X</a>
+                </div>
+                <span contenteditable="true">SomeEvents</span>
+            </div>
+            <div class="add">
+                <a href="#" class="add_new">...</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--- Form add new Events-->
+<div id="modal" class="modal fade">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+        <h2>Add new events</h2>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" method="post" action="#">
+            <div class="control-group">
+                <label class="control-label" for="inputText">Event</label>
+
+                <div class="controls">
+                    <textarea rows="6" id="inputText" placeholder="текст события" name="textEvents"></textarea>
+                </div>
+            </div>
+            <div class="control-group btn-block">
+                <button type="button" class="btn btn-primary btn-large addEvent">Добавить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="frontend/js/jquery-1.12.0.min.js"></script>
+<script src="frontend/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var curPosition;
+        $('.add_new').bind('click', function (e) {
+            curPosition = e.target;
+            $('#modal').modal();
+            $('.modal-backdrop').bind('click', function () {
+                $('.close').click();
+            })
+        });
+
+        $('.cancel a').bind('click', delEvent);
+        $('.addEvent').bind('click', function () {
+            $(curPosition).parent().parent().prepend('<div class="one_event">'
+                    + '<div class="cancel">'
+                    + '<a href="#">X</a>'
+                    + '</div>'
+                    +'<span contenteditable="true">'
+                    + $('#inputText').val()
+                    +'</span>'
+                    + '</div>'
+            );
+
+            $('.cancel a').bind('click', delEvent);
+            $('.close').click();
+        })
+    });
+
+    function delEvent(e) {
+        var curElem = e.target;
+        $(curElem).parent().parent().hide();    //удаление события
+    }
+</script>
+</body>
+</html>
