@@ -46,10 +46,10 @@
    ReactDOM.render(< DoingEvents.WeekEvents data={objDays} />,document.getElementById('content'));
 </script>
 <script>
-
+////////////////////// DOM //////////////////////////////
     $(document).ready(function () {
         $('.addEvent').bind('click', function () {
-            $(curPosition).parent().parent().prepend('<div class="one_event">'
+            $(DoingEvents.curPosition).parent().parent().prepend('<div class="one_event">'
                     + '<div class="cancel">'
                     + '<a href="#">X</a>'
                     + '</div>'
@@ -59,7 +59,9 @@
                     + '</div>'
             );
 
-            $('.cancel a').bind('click', delEvent);
+            $('.cancel a').bind('click', function(e){
+                $(e.target).parent().parent().hide();      //удаление события
+            });
             $('.close').click();
         })
     });

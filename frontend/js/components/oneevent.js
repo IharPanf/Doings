@@ -10,6 +10,7 @@ DoingEvents.OneEvent = React.createClass({
     render: function () {
         var daysName = this.props.curDay;
         var eventsInDay;
+        var _this = this;
         for (var  i = 0, len = daysName.length;i < len; i++) {
             eventsInDay = this.props.data.map(function (event) {
                 if (event.dayofweek == daysName[i]) {
@@ -18,7 +19,7 @@ DoingEvents.OneEvent = React.createClass({
                             <span contentEditable="true">{event.textEvent}</span>
 
                             <div className="cancel">
-                                <a href="#">X</a>
+                                <a href="#" onClick={_this.deleteClick}>X</a>
                             </div>
                         </div>
                     )
@@ -26,7 +27,6 @@ DoingEvents.OneEvent = React.createClass({
             });
         }
 
-    //    var data = this.props.data;
         return (
             <div>
             {eventsInDay}

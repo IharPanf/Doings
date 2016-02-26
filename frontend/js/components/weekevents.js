@@ -3,7 +3,15 @@
  */
 
 DoingEvents.WeekEvents = React.createClass({
+    addNew: function (e) {
+        DoingEvents.curPosition = e.target;
+        $('#modal').modal();
+        $('.modal-backdrop').bind('click', function () {
+            $('.close').click();
+        })
+    },
     render: function () {
+        var _this = this;
         var dayEvents = this.props.data.map(function (day) {
             return (
                 <div className="row-fluid">
@@ -14,7 +22,7 @@ DoingEvents.WeekEvents = React.createClass({
                         <DoingEvents.OneEvent data={objEvents} curDay={day.id}/>
 
                         <div className="add">
-                            <a href="#" className="add_new">...</a>
+                            <a href="#" className="add_new" onClick={_this.addNew}>...</a>
                         </div>
                     </div>
                 </div>
