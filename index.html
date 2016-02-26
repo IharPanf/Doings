@@ -37,16 +37,13 @@
 <script src="frontend/js/lib/react.min.js"></script>
 <script src="frontend/js/lib/react-dom.min.js"></script>
 <script src="frontend/js/lib/browser.min.js"></script>
-<script src="frontend/js/data/data.js"></script>
-<script src="frontend/js/components/oneevent.js" type="text/babel"> </script>
-<script src="frontend/js/components/dayevents.js" type="text/babel"></script>
+<script src="frontend/js/data/objevents.js"></script>
+<script src="frontend/js/data/objdays.js"></script>
 <script src="frontend/js/components/weekevents.js" type="text/babel"></script>
+<script src="frontend/js/components/oneevent.js" type="text/babel"> </script>
 
 <script type="text/babel">
-   ReactDOM.render(
-           React.createElement(DoingEvents.WeekEvents, null),
-           document.getElementById('content')
-   );
+   ReactDOM.render(< DoingEvents.WeekEvents data={objDays} />,document.getElementById('content'));
 </script>
 <script>
 

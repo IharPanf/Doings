@@ -8,13 +8,28 @@ DoingEvents.OneEvent = React.createClass({
         $(curElem).parent().parent().hide();    //удаление события
     },
     render: function () {
-        return (
-            <div className="one_event">
-                <span contentEditable="true">SomeEvents</span>
+        var daysName = this.props.curDay;
+        var eventsInDay;
+        for (var  i = 0, len = daysName.length;i < len; i++) {
+            eventsInDay = this.props.data.map(function (event) {
+                if (event.dayofweek == daysName[i]) {
+                    return (
+                        <div className="one_event">
+                            <span contentEditable="true">{event.textEvent}</span>
 
-                <div className="cancel">
-                    <a href="#" onClick={this.deleteClick}>X</a>
-                </div>
+                            <div className="cancel">
+                                <a href="#">X</a>
+                            </div>
+                        </div>
+                    )
+                }
+            });
+        }
+
+    //    var data = this.props.data;
+        return (
+            <div>
+            {eventsInDay}
             </div>
         );
     }
