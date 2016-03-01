@@ -39,8 +39,8 @@
 <script src="frontend/js/lib/browser.min.js"></script>
 <script src="frontend/js/data/objevents.js"></script>
 <script src="frontend/js/data/objdays.js"></script>
-<script src="frontend/js/components/weekevents.js" type="text/babel"></script>
-<script src="frontend/js/components/oneevent.js" type="text/babel"> </script>
+<script src="frontend/js/components/weekevents.jsx" type="text/babel"></script>
+<script src="frontend/js/components/oneevent.jsx" type="text/babel"> </script>
 
 <script type="text/babel">
    ReactDOM.render(< DoingEvents.WeekEvents data={objDays} />,document.getElementById('content'));
@@ -60,11 +60,12 @@
             );
 
             $('.cancel a').bind('click', function(e){
-                $(e.target).parent().parent().hide();      //удаление события
+                $(e.target).parent().parent().hide();      //delete event
             });
             $('.close').click();
         })
     });
 </script>
+
 </body>
 </html>

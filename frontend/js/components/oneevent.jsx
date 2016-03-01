@@ -1,16 +1,16 @@
 /**
  * Created by i.panfilenko on 25.02.2016.
  */
-
 DoingEvents.OneEvent = React.createClass({
     deleteClick:function(e){
         var curElem = e.target;
-        $(curElem).parent().parent().hide();    //удаление события
+        $(curElem).parents().eq(1).hide();    //delete event
     },
     render: function () {
         var daysName = this.props.curDay;
         var eventsInDay;
         var _this = this;
+
         for (var  i = 0, len = daysName.length;i < len; i++) {
             eventsInDay = this.props.data.map(function (event) {
                 if (event.dayofweek == daysName[i]) {
@@ -22,7 +22,7 @@ DoingEvents.OneEvent = React.createClass({
                                 <a href="#" onClick={_this.deleteClick}>X</a>
                             </div>
                         </div>
-                    )
+                    );
                 }
             });
         }
