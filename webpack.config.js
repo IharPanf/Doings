@@ -2,15 +2,16 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'cheap-inline-module-source-map',
   entry: [
     'webpack-dev-server/client?http://doings:8888',
-    'webpack/hot/only-dev-server'
+    'webpack/hot/only-dev-server',
+    './index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: 'static'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -24,9 +25,6 @@ module.exports = {
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
       exclude: /node_modules/
-    }, {
-      test: /\.css?$/,
-      loaders: ['style', 'raw']
     }]
   }
 };

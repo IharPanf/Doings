@@ -34,22 +34,19 @@
 </script>
 <script src="frontend/js/lib/jquery-1.12.0.min.js"></script>
 <script src="frontend/js/lib/bootstrap.min.js"></script>
-<script src="frontend/js/lib/react.min.js"></script>
-<script src="frontend/js/lib/react-dom.min.js"></script>
-<script src="frontend/js/lib/browser.min.js"></script>
 <script src="frontend/js/data/objevents.js"></script>
 <script src="frontend/js/data/objdays.js"></script>
 <script src="frontend/js/components/weekevents.jsx" type="text/babel"></script>
 <script src="frontend/js/components/oneevent.jsx" type="text/babel"> </script>
 
 <script type="text/babel">
-   ReactDOM.render(< DoingEvents.WeekEvents data={objDays} />,document.getElementById('content'));
+  // ReactDOM.render(< DoingEvents.WeekEvents data={objDays} />,document.getElementById('content'));
 </script>
 <script>
 ////////////////////// DOM //////////////////////////////
     $(document).ready(function () {
         $('.addEvent').bind('click', function () {
-            $(DoingEvents.curPosition).parent().parent().prepend('<div class="one_event">'
+            $(DoingEvents.curPosition).parents().eq(1).prepend('<div class="one_event">'
                     + '<div class="cancel">'
                     + '<a href="#">X</a>'
                     + '</div>'
@@ -66,6 +63,6 @@
         })
     });
 </script>
-
 </body>
+<script src="/dist/bundle.js"></script>
 </html>

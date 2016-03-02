@@ -9,10 +9,9 @@ new WebpackDevServer(webpack(config), {
   stats: {
     colors: true
   }
-}).listen(8888, 'doings', function (err,result) {
+}).listen(8888, 'doings', function (err) {
   if (err) {
     console.log(err);
   }
-  console.log(result);
   console.log('Server started:8888');
 });
